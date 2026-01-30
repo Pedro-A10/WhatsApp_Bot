@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -34,6 +35,12 @@ public class WhatsappService {
         attachImage(product.getImagePath());
         writeCaption(product);
         sendMessage();
+    }
+
+    public void sendProducts(String contact, List<Product> products) {
+        for (Product product : products) {
+            sendProduct(contact, product);
+        }
     }
 
 
@@ -64,7 +71,7 @@ public class WhatsappService {
     }
 
     private WebElement findContact(String contactName) {
-        var xPathContact = "//*[@id=\"pane-side\"]/*//span[@title='" + contactName + "']";
+        var xPathContact = "//*[@id=\"pane-side\"]/*//span[@title=" + contactName + "']";
         return webDriver.findElement(By.xpath(xPathContact));
     }
 

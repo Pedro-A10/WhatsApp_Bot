@@ -7,9 +7,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Slf4j
 @SpringBootApplication
+@EnableScheduling
 public class WhatsAppBotApplication {
 
 	public static void main(String[] args) {
